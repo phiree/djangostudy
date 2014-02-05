@@ -10,4 +10,5 @@ urlpatterns = patterns('',
     ('^$',home),
     url(r'^polls/',include('polls.urls',namespace='polls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^products/',include('products.urls',namespace='products')),
 )

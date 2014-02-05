@@ -1,0 +1,16 @@
+
+<span>Vote</span>
+
+<h1>{{templateContent.last_poll.question}}</h1>
+{%if error_message%}<p><strong>{{error_message}}</strong></p>{%endif%}
+<form action="{%url 'polls:vote' templateContent.last_poll.id %}" method="post">
+{%csrf_token%}
+<ul>
+{%for choice in templateContent.last_poll.choice_set.all%}
+<li> <input type="radio" name="choice" id="choice{{forloop.counter}}" 
+	value="{{choice.id}}"/> <label for="choice{{forloop.counter}}"
+	> {{choice.choice_text}}</label></li>
+{%endfor%}
+</ul>
+<input type="submit" value="Vote"/>
+</form>

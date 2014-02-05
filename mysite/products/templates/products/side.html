@@ -1,0 +1,14 @@
+
+<span style="background-color: #eee">Product_List</span>
+{%load staticfiles%}
+<link rel="stylesheet" type="text/css" href="{%static 'products/style.css'%}" />
+{% if side_product_list %}
+<div>
+{%for product in side_product_list%}
+  <div><a href="#">{{product.name}}</a></div>
+  {%endfor%}
+</div>
+{%else%}
+<p>No Product are availabel.</p>
+LoadFromIncludeTemplate{{content}}
+{%endif%}

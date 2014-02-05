@@ -19,7 +19,7 @@ class DetailView(generic.DetailView):
     Excludes any polls that are't published yet'''
     def get_queryset(self):
         return Poll.objects.filter(pub_date__lte=timezone.now())
-    
+
 class ResultsView(generic.DetailView):
     model=Poll
     template_name='polls/results.html'
@@ -29,12 +29,10 @@ def index(request):
     context={'latest_poll_list':latest_poll_list}
     return render(request,'polls/index.html',context)
 
-def detail(request,poll_id):
-   
-    poll=get_object_or_404(Poll,pk=poll_id)
-   
+def WidgetVote(request):
+    poll=Poll.objects.last()
     context={'poll':poll}
-    return render(request,'polls/detail.html',context)
+    return render(request,'polls/widget_vote.html',context)
 
 def results(request,poll_id):
     poll=get_object_or_404(Poll,pk=poll_id)

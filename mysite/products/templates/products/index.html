@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+{%block content%}
+{%load staticfiles%}
+<link rel="stylesheet" type="text/css" href="{%static 'products/style.css'%}" />
+{% if side_product_list %}
+<ul>
+{%for product in side_product_list%}
+  <li><a href="#">{{product.name}}</a></li>
+  {%endfor%}
+</ul>
+{%else%}
+<p>No Products are availabel.</p>
+{%endif%}
+{%endblock%}

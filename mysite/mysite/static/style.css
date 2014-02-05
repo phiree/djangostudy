@@ -1,0 +1,7 @@
+#page{width:960px; margin:0 auto;}
+#head{
+	border-bottom:solid 2px #ccc
+}
+#left{float:left; margin-right:10px; width:290px}
+#content{float:left;width:660px}
+.clear{clear:both;}
